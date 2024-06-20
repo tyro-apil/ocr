@@ -27,14 +27,13 @@ def get_annotated_img(img_path, boxes, txts, scores):
     Returns PIL image by drawing bounding boxes on the image and detected texts
     """
     img = Image.open(img_path).convert("RGB")
-    im_show = draw_ocr(img, boxes, txts, scores, font_path="simfang.ttf")
+    im_show = draw_ocr(img, boxes, txts, scores, font_path="fonts/simfang.ttf")
     im_show = Image.fromarray(im_show)
     return im_show
 
+
 # need to run only once to download and load model into memory
-ocr = PaddleOCR(
-    use_angle_cls=True, lang="en"
-)  
+ocr = PaddleOCR(use_angle_cls=True, lang="en")
 
 # Load image
 img_path = "test.jpeg"
